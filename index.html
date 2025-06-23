@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Weather App</title>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="Enter City Name"
+                spellcheck="false">
+                <button><i class="fa fa-search"></i></button>
+            </div>
+            <div class="weather">
+                <div class="initial">
+                    <h2>Weather Report</h2>
+                <h1 class="temp">33°C</h1>
+                <h2 class="city">Kolkata</h2>
+                </div>
+                <div class="details">
+                    <div class="col">
+                        <div>
+                            <i class="fas fa-tint"></i>
+                            <p class="humidity">85%</p>
+                            <p>Humidity</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fas fa-wind"></i>
+                            <p class="wind">11km/h</p>
+                            <p>Wind Speed</p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div>
+                            <i class="fas fa-cloud"></i>
+                            <p class="clouds">35%</p>
+                            <p>Clouds</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div> 
+        
+        <script>
+            const apiKey="7b3bfb316c572b90493c50f51eb086c4";
+            const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+            const searchBox=document.querySelector(".search input");
+            const searchBtn=document.querySelector(".search button")
+
+
+            async function checkWeather(city) {
+                const response= await fetch(apiUrl + city +`&appid=${apiKey}`)
+            var data = await response.json();
+
+            console.log(data);
+            
+            document.querySelector(".city").innerHTML=data.name;
+            document.querySelector(".temp").innerHTML=Math.round(data.main.temp) + "°C";
+            document.querySelector(".humidity").innerHTML=data.main.humidity + "%";
+            document.querySelector(".wind").innerHTML=data.wind.speed + " km/h";
+            document.querySelector(".clouds").innerHTML=data.clouds.all + "%";
+            }
+
+            searchBtn.addEventListener("click",()=>{
+                checkWeather(searchBox.value);
+                })
+
+        </script>
+
+    </body>
+</html>
