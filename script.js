@@ -20,4 +20,10 @@ const apiKey="7b3bfb316c572b90493c50f51eb086c4";
 
             searchBtn.addEventListener("click",()=>{
                 checkWeather(searchBox.value);
-                })
+                });
+                
+                searchBox.addEventListener("keypress",function(event){
+                    if(event.key==="Enter"){
+                        checkWeather(searchBox.value);
+                    }
+                });
