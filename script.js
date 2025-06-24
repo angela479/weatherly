@@ -28,8 +28,15 @@ const apiKey="7b3bfb316c572b90493c50f51eb086c4";
             function updateBackground(isDayTime)
             {
                 const body= document.body;
-                if(isDayTime)
+                const detailscol=document.querySelectorAll('.col');
+
+                if(isDayTime){
                     body.style.backgroundImage="url('sunny.jpg')";
+                    detailscol.forEach(col=>{
+                        col.style.backgroundColor="rgba(0,0,0,0.4)";
+                        col.style.color="white";
+                    });
+                }
                 else
                     body.style.backgroundImage="url('night.jpg')";
 
