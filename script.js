@@ -52,7 +52,7 @@ const apiKey="7b3bfb316c572b90493c50f51eb086c4";
             }
             });
             
-            /*window.addEventListener("load",()=>{
+            window.addEventListener("load",()=>{
                 checkWeather("Kolkata");
-            })*/
+            });
             
