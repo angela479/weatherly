@@ -142,12 +142,12 @@ body{
   bottom: 10px;
   right: 20px;
   font-size: 14px;
-  color: rgb(154, 110, 190);
+  color: rgb(255, 255, 255);
   opacity: 0.7;
   font-family: 'Poppins', sans-serif;
 }
 
 .footer a {
-  color: rgb(141, 31, 31);
+  color: rgb(96, 63, 207);
   text-decoration: underline;
 }
