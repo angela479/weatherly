@@ -1,5 +1,7 @@
-const apiKey="7b3bfb316c572b90493c50f51eb086c4";
-            const apiUrl="https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+        if (typeof apiKey === "undefined") {
+  alert("API key not found! Please make sure 'api-key.js' is loaded and contains your OpenWeatherMap API key.");
+} else {
+  const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
 
             const searchBox=document.querySelector(".search input");
             const searchBtn=document.querySelector(".search button");
@@ -55,4 +57,4 @@ const apiKey="7b3bfb316c572b90493c50f51eb086c4";
             window.addEventListener("load",()=>{
                 checkWeather("Kolkata");
             });
-            
+        }
